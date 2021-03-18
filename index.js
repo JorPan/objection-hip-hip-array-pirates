@@ -37,11 +37,13 @@ class Ship extends Model {
 }
 
 app.get("/ships", (_, response) => {
-  database("ships").then((ships) => response.json({ ships }));
+  Ship.query()
+    .withGraphFetched("pirates") //INCLUDES PIRATES IN THE SHIP QUERY
+    .then((ships) => response.json({ ships }));
 });
 
 app.get("/pirates", (_, response) => {
-  database("pirates").then((pirates) => response.json({ pirates }));
+  Pirate.query().then((pirates) => response.json({ pirates }));
 });
 
 app.listen(port, () => console.log(`listening on port ${port}`));
