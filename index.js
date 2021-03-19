@@ -12,14 +12,12 @@ app.use(express.json());
 Model.knex(database);
 
 class Pirate extends Model {
-  // static tableName = "pirates"
   static get tableName() {
     return "pirates";
   }
 }
 
 class Ship extends Model {
-  // static tableName = "ships"
   static get tableName() {
     return "ships";
   }
