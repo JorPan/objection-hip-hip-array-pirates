@@ -36,7 +36,7 @@ class Ship extends Model {
 
 app.get("/ships", (_, response) => {
   Ship.query()
-    .withGraphFetched("pirates") //INCLUDES PIRATES IN THE SHIP QUERY
+    .withGraphFetched("pirates") //THIS INCLUDES PIRATES IN THE SHIP QUERY
     .then((ships) => response.json({ ships }));
 });
 
